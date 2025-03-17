@@ -1,0 +1,89 @@
+<div class="container form-container">
+  <form (ngSubmit)="onFormSubmit()" #editTodoForm="ngForm">
+    <div class="form-row d-flex mb-3">
+      <div class="form-group col-md-6 px-5 ">
+        <label for="status" class="mb-1">Status <span class="text-danger">*</span></label>
+        <select
+
+          class="form-control form-select"
+          id="status"
+          name="status"
+          required  
+          [(ngModel)]="todoItem.status">
+          <option >Not Started</option>
+          <option>Completed</option>
+          <option>In Progress</option>
+        </select>
+      </div>
+      <div class="form-group col-md-6 px-5">
+        <label for="assignedTo" class="mb-1"
+          >Assigned To <span class="text-danger">*</span></label
+        >
+
+        <select
+          class="form-control form-select"
+          id="assignedTo"
+          name="assignTo"
+          required
+          [(ngModel)]="todoItem.assignTo"
+        >
+        <option>User 1</option>
+        <option>User 2</option>
+        <option>User 3</option>
+        <option>User 4</option> 
+      </select>
+
+      </div>
+    </div>
+
+    <div class="form-row d-flex mb-3">
+      <div class="form-group col-md-6 px-5">
+        <label for="dueDate" class="mb-1">Due Date</label>
+        <input
+          type="date"
+          class="form-control"
+          id="dueDate"
+          name="dueDate"
+          required
+          [(ngModel)]="todoItem.dueDate"
+        />
+      </div>
+      <div class="form-group col-md-6 px-5">
+        <label for="priority" class="mb-1"
+          >Priority <span class="text-danger">*</span></label >
+        <select
+          class="form-control form-select"
+          id="priority"
+          name="priority"
+          required
+          [(ngModel)]="todoItem.priority"
+        >
+          <option>Normal</option>
+          <option>Low</option>
+          <option>High</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group px-5">
+      <label for="description" class="mb-1">Description</label>
+      <textarea
+        class="form-control"
+        id="description"
+        rows="3"  
+        name="comment"
+        required
+        [(ngModel)]="todoItem.comment"
+      ></textarea>
+    </div>
+    <div class="form-group d-flex justify-content-end bg-light p-4 mx-5">
+      <button
+        type="link"
+        class="btn-close"
+        data-bs-dismiss="modal"
+        class="btn btn-secondary px-4 mx-2" >
+        Cancel
+      </button>
+      <button type="submit" class="btn btn-warning px-4 "data-bs-dismiss="modal" [disabled]="!editTodoForm.valid">Update</button>
+    </div>
+  </form>
+</div>
